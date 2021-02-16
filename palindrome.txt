@@ -1,0 +1,33 @@
+#include <iostream>
+#include <algorithm>
+using std::transform;
+using std::string;
+using std::cout;
+
+//Desc:Function to determine if a word or phrase is a palindrome.
+
+bool IsPalindrome(string InStr) {
+    int start = 0;
+    int end = InStr.length() - 1;
+
+    if (InStr == ""){
+        return false;
+    }
+
+    transform(InStr.begin(), InStr.end(), InStr.begin(), ::tolower); //lower case
+    
+    while( (start < end) && (InStr.at(start)==InStr.at(end)) ) {
+        start++; end--;
+    }
+
+    if (InStr.at(start) != InStr.at(end)){
+        return false;
+    }
+    
+    return true;
+}
+
+int main(){
+    bool retval = IsPalindrome("123");
+    cout << "retval:" << retval << "\n";
+}
