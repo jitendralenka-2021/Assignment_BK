@@ -5,21 +5,21 @@ using std::string;
 using std::cout;
 
 bool ProcessRecursion(string InStr, int start, int end){
-    if (InStr.at(start) != InStr.at(end)){
+    if (InStr.at(start) != InStr.at(end) ){
         return false;
     }
 
-    if (start < end + 1){
-        return ProcessRecursion(InStr, start + 1, end - 1);
+    if (start < (end+1) ){
+        return ProcessRecursion(InStr, start+1, end-1);
     }
     return true;
 }
 
 bool IsPalindrome(string InStr){
-    int start = 0;
-    int end = InStr.length() - 1;
+    int start=0;
+    int end=InStr.length()-1;
 
-    if (InStr.size() == 0){  //Empty string, returns false
+    if (InStr.size()==0){  //Empty string, returns false
         return false;
     }
 
